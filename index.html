@@ -418,33 +418,33 @@
     }
 
     .about__figure {
+      width: auto;
+      text-align: center;
       margin: 0 auto 1.25rem;
       flex-shrink: 0;
-      width: 90%;
     }
 
     .about__figure--missing {
       display: none;
     }
 
-    @media (min-width: 768px) {
-      .about__figure {
-        width: 220px;
-        margin: 0;
-      }
-    }
-
     .about__img {
+      aspect-ratio: 1 / 1;
+      max-height: 280px;
+      width: auto;
+      margin: 0 auto;
       display: block;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      max-height: 400px;
       object-fit: cover;
       object-position: center 15%;
       border-radius: 12px;
     }
 
     @media (min-width: 768px) {
+      .about__figure {
+        width: 220px;
+        text-align: left;
+        margin: 0;
+      }
       .about__img {
         width: 220px;
         max-height: 300px;
