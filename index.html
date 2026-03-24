@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oksana Sultanowa — онлайн-консультация по волосам</title>
+  <meta name="description" content="Онлайн-консультация по цвету, стрижке и уходу за волосами. Запись в WhatsApp.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oksanasultanowa.com/">
+  <meta property="og:title" content="Oksana Sultanowa — онлайн-консультация по волосам">
+  <meta property="og:description" content="Разберём, что делать с вашими волосами: цвет, стрижка, уход или исправление.">
+  <meta property="og:image" content="https://oksanasultanowa.com/images/og.jpg">
+  <meta property="og:locale" content="ru_RU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oksana Sultanowa — онлайн-консультация по волосам">
+  <meta name="twitter:description" content="Онлайн-консультация по волосам. Запись в WhatsApp.">
+  <meta name="twitter:image" content="https://oksanasultanowa.com/images/og.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23b8a99a'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f2ee;
+      --text: #3a3632;
+      --muted: #8a837c;
+      --accent: #b8a99a;
+      --accent-soft: rgba(184, 169, 154, 0.12);
+      --whatsapp: #25d366;
+      --whatsapp-hover: #20bd5a;
+      --btn-beige: #c6b7a6;
+      --btn-beige-hover: #b8a896;
+      --btn-text: #2b2b2b;
+      --rule: rgba(58, 54, 50, 0.06);
+      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --section-pad: clamp(4rem, 12vw, 7rem);
+      --content: 36rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .content {
+      width: min(100% - 2rem, var(--content));
+      margin-inline: auto;
+    }
+
+    @media (min-width: 768px) {
+      .content { width: min(100% - 3rem, var(--content)); }
+    }
+
+    /* ——— Hero ——— */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+
+    .hero__media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: linear-gradient(155deg, #ebe6df 0%, #ddd5cc 50%, #cfc4b8 100%);
+    }
+
+    .hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(245,242,238,1) 0%, rgba(245,242,238,0.85) 35%, transparent 70%);
+    }
+
+    @media (min-width: 768px) {
+      .hero__media {
+        position: relative;
+        flex: 0 0 45%;
+        max-width: 45%;
+      }
+
+      .hero__media::after {
+        background: linear-gradient(to right, transparent 70%, var(--bg) 100%);
+      }
+    }
+
+    .hero__media.is-fallback .hero__img { display: none; }
+
+    .hero__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 2rem clamp(1.25rem, 5vw, 2rem);
+      padding-bottom: clamp(2.5rem, 8vh, 4rem);
+      color: var(--text);
+    }
+
+    @media (min-width: 768px) {
+      .hero__inner {
+        justify-content: center;
+        padding: 2rem clamp(1.5rem, 4vw, 3rem);
+        padding-bottom: clamp(2.5rem, 8vh, 4rem);
+        max-width: none;
+      }
+    }
+
+    .hero__inner .lead,
+    .hero__inner .meta {
+      color: var(--muted);
+    }
+
+    .hero__inner .subtitle {
+      color: var(--accent);
+    }
+
+    .hero__box {
+      width: 100%;
+      max-width: 22rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero__box { max-width: 24rem; }
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 9vw, 3.65rem);
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      margin: 0 0 0.6rem;
+    }
+
+    .hero h1 {
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin: 0 0 1.35rem;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .lead {
+      font-weight: 300;
+      font-size: 0.96875rem;
+      margin: 0 0 1.1rem;
+      line-height: 1.6;
+    }
+
+    .meta {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      margin: 0 0 1.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--btn-text) !important;
+      background: var(--btn-beige);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none !important;
+    }
+
+    .btn-wa:hover {
+      background: var(--btn-beige-hover);
+      color: var(--btn-text) !important;
+    }
+
+    .list-kw {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .step-lead {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .about__lead {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ——— Sections ——— */
+    .section {
+      border-top: 1px solid var(--rule);
+      padding: var(--section-pad) 0;
+    }
+
+    .section h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.65rem, 4.5vw, 2rem);
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+      margin: 0 0 1.75rem;
+      text-align: center;
+    }
+
+    .list-plain {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .section--audience .list-plain,
+      .section--receive .list-plain { text-align: left; }
+      .section--audience h2,
+      .section--receive h2 { text-align: left; }
+    }
+
+    .list-plain li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 1.15rem;
+      font-weight: 300;
+      font-size: 0.96875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .list-plain li:last-child {
+      margin-bottom: 0;
+    }
+
+    .content > .list-plain {
+      margin-inline: auto;
+    }
+
+    @media (min-width: 600px) {
+      .section--audience .content > .list-plain,
+      .section--receive .content > .list-plain {
+        margin-inline: 0;
+      }
+    }
+
+    .list-plain li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+
+    @media (max-width: 599px) {
+      .section--audience .list-plain li,
+      .section--receive .list-plain li {
+        text-align: center;
+        padding-left: 0;
+      }
+      .section--audience .list-plain li::before,
+      .section--receive .list-plain li::before {
+        display: none;
+      }
+    }
+
+    .kw {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .callout {
+      margin-top: 2rem;
+      padding: 0 0 0 1rem;
+      border-left: 2px solid var(--accent);
+      background: none;
+      border-radius: 0;
+      font-size: 0.9375rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .callout { text-align: left; }
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .step__num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .step p {
+      margin: 0;
+      font-weight: 300;
+      font-size: 0.96875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      padding-top: 0.15rem;
+    }
+
+    .section--steps h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .section--about h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .section--about h2 {
+        text-align: left;
+      }
+    }
+
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .about {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1.75rem;
+      }
+    }
+
+    .about__figure {
+      margin: 0 auto 1.5rem;
+      flex-shrink: 0;
+      width: 85%;
+    }
+
+    .about__figure--missing {
+      display: none;
+    }
+
+    @media (max-width: 599px) {
+      .about {
+        gap: 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .about__figure {
+        width: 220px;
+        margin: 0;
+      }
+    }
+
+    .about__img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .about__img {
+        width: 220px;
+        max-height: 320px;
+        aspect-ratio: auto;
+        border-radius: 12px;
+      }
+    }
+
+    .about__text {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 100%;
+    }
+
+    .price-block {
+      text-align: center;
+    }
+
+    .price {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .price-note {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0 0 1.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .price-block .btn-wa {
+      max-width: 22rem;
+      margin-inline: auto;
+    }
+
+    .price-hint {
+      margin: 1rem 0 0;
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .section--cta .content {
+      text-align: center;
+    }
+
+    .cta-final__text {
+      margin: 0 auto 1.35rem;
+      max-width: 24rem;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .section--cta .btn-wa {
+      max-width: 22rem;
+      margin-inline: auto;
+    }
+
+    /* Steps & pricing: center heading on mobile, left on larger if desired - user said text center mobile */
+    .section--steps .content {
+      text-align: center;
+    }
+
+    .section--steps .steps {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    @media (min-width: 600px) {
+      .section--steps .content { text-align: left; }
+      .section--steps h2 { text-align: left; }
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: clamp(3.25rem, 9vw, 4.5rem) 1rem 2.75rem;
+      text-align: center;
+    }
+
+    footer a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      margin: 0.5rem 0 0;
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: var(--muted);
+      opacity: 0.75;
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero__media">
+      <img class="hero__img" src="hero.jpg" alt="" width="900" height="1100" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.parentElement.classList.add('is-fallback')">
+    </div>
+    <div class="hero__inner">
+      <div class="hero__box">
+        <h1>Oksana Sultanowa</h1>
+        <p class="subtitle">Онлайн-консультация по волосам</p>
+        <p class="lead">Разберём, что делать с вашими волосами: цвет, стрижка, уход или исправление</p>
+        <p class="meta">30–40 минут · онлайн</p>
+        <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--audience" aria-labelledby="h-audience">
+    <div class="content">
+      <h2 id="h-audience">Кому подойдёт консультация</h2>
+      <ul class="list-plain">
+        <li><span class="list-kw">Если</span> вы хотите изменить цвет, но не уверены</li>
+        <li><span class="list-kw">Если</span> не понимаете, что вам пойдёт</li>
+        <li><span class="list-kw">Если</span> был неудачный результат</li>
+        <li><span class="list-kw">Если</span> волосы в разном состоянии и сложно разобраться</li>
+        <li><span class="list-kw">Если</span> хотите мнение специалиста до визита в салон</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--receive" aria-labelledby="h-receive">
+    <div class="content">
+      <h2 id="h-receive">Что вы получите</h2>
+      <ul class="list-plain">
+        <li><span class="kw">Понимание,</span> что можно делать с вашими волосами</li>
+        <li><span class="kw">Рекомендации по цвету</span> и стрижке</li>
+        <li><span class="kw">Подбор ухода</span> под текущее состояние</li>
+        <li><span class="kw">Варианты изменений</span></li>
+        <li><span class="kw">Понимание, чего</span> лучше не делать</li>
+      </ul>
+      <p class="callout">В том числе после неудачных окрашиваний и сложных случаев</p>
+    </div>
+  </section>
+
+  <section class="section section--steps" aria-labelledby="h-steps">
+    <div class="content">
+      <h2 id="h-steps">Как проходит консультация</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step__num" aria-hidden="true">1</span>
+          <p><span class="step-lead">Вы отправляете фото</span> волос и коротко описываете запрос</p>
+        </div>
+        <div class="step">
+          <span class="step__num" aria-hidden="true">2</span>
+          <p><span class="step-lead">Я смотрю состояние</span> и задаю уточняющие вопросы</p>
+        </div>
+        <div class="step">
+          <span class="step__num" aria-hidden="true">3</span>
+          <p><span class="step-lead">Мы проводим консультацию</span> онлайн</p>
+        </div>
+        <div class="step">
+          <span class="step__num" aria-hidden="true">4</span>
+          <p><span class="step-lead">Вы получаете рекомендации</span> и понимаете, что делать дальше</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--about" aria-labelledby="h-about">
+    <div class="content">
+      <h2 id="h-about">Обо мне</h2>
+      <div class="about">
+        <figure class="about__figure">
+          <img class="about__img" src="hero.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" onerror="this.onerror=null;this.closest('.about__figure').classList.add('about__figure--missing')">
+        </figure>
+        <p class="about__text"><span class="about__lead">Оксана Султанова</span> — парикмахер-колорист<br>
+<span class="about__lead">25 лет в профессии</span><br>
+Работаю со стрижками, окрашиванием<br>
+и сложными случаями<br>
+Ранее — основатель академии<br>
+и преподаватель<br>
+Ко мне приходят, когда хотят<br>
+что-то изменить<br>
+или исправить состояние волос<br>
+Консультация — это возможность<br>
+разобраться до того, как что-то делать</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--price" aria-labelledby="h-price">
+    <div class="content price-block">
+      <h2 id="h-price">Стоимость</h2>
+      <p class="price">150 zł</p>
+      <p class="price-note">30–40 минут · онлайн</p>
+      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+      <p class="price-hint">Напишите — и мы договоримся о времени</p>
+    </div>
+  </section>
+
+  <section class="section section--cta" aria-label="Запись на консультацию">
+    <div class="content">
+      <p class="cta-final__text">Можно начать с консультации. Сначала разобраться — потом менять</p>
+      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://instagram.com/oksana_fryzjer" target="_blank" rel="noopener noreferrer">@oksana_fryzjer</a>
+    <p class="copyright">© 2026 Oksana Sultanowa</p>
+  </footer>
+
+  <script>
+    (function () {
+      var phone = "48794513460";
+      var text = "Привет! Хочу записаться на консультацию.";
+      var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(text);
+      document.querySelectorAll("a.wa-link").forEach(function (a) {
+        a.setAttribute("href", url);
+      });
+    })();
+  </script>
+</body>
+</html>
