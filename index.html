@@ -9,531 +9,424 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oksanasultanowa.com/">
   <meta property="og:title" content="Oksana Sultanowa — онлайн-консультация по волосам">
-  <meta property="og:description" content="Разберём, что делать с вашими волосами: цвет, стрижка, уход или исправление.">
-  <meta property="og:image" content="https://oksanasultanowa.com/images/og.jpg">
-  <meta property="og:locale" content="ru_RU">
+  <meta property="og:description" content="Онлайн-консультация по цвету, стрижке и уходу за волосами. Запись в WhatsApp.">
+  <meta property="og:image" content="https://oksanasultanowa.com/hero.jpg">
+  <meta property="og:site_name" content="Oksana Sultanowa">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Oksana Sultanowa — онлайн-консультация по волосам">
-  <meta name="twitter:description" content="Онлайн-консультация по волосам. Запись в WhatsApp.">
-  <meta name="twitter:image" content="https://oksanasultanowa.com/images/og.jpg">
+  <meta name="twitter:description" content="Онлайн-консультация по цвету, стрижке и уходу за волосами. Запись в WhatsApp.">
+  <meta name="twitter:image" content="https://oksanasultanowa.com/hero.jpg">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23b8a99a'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-light: #F5F2EE;
-      --bg-warm: #EDE8E2;
+      --bg: #F5F2EE;
+      --bg-alt: #EDEAE4;
       --text: #2d2a26;
       --text-soft: #7d756e;
       --text-faded: #a49d96;
       --accent: #b8a99a;
-      --lavender: rgba(168, 160, 185, 0.2);
       --btn-bg: #C6B7A6;
       --btn-text: #2B2B2B;
       --btn-hover: #b8a896;
-      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-      --font-body: "Inter", system-ui, sans-serif;
-      --section-pad: clamp(3.5rem, 10vw, 5.5rem);
-      --content: 32rem;
+      --line: rgba(168, 160, 185, 0.15);
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: var(--font-body);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       font-weight: 300;
-      font-size: 1rem;
       line-height: 1.6;
-      color: var(--text);
-      background: var(--bg-light);
+      color: var(--text-soft);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .content {
-      width: min(100% - 2rem, var(--content));
-      margin-inline: auto;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
 
-    @media (min-width: 768px) {
-      .content { width: min(100% - 3rem, var(--content)); }
+    h1,
+    h2 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--text);
     }
 
-    /* ——— Hero ——— */
+    p {
+      margin: 0;
+    }
 
     .hero {
-      display: flex;
-      flex-direction: column;
+      background: var(--bg);
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        position: relative;
-        flex-direction: row;
-        align-items: stretch;
-        min-height: 100vh;
-        min-height: 100dvh;
-      }
-    }
-
-    .hero__media {
-      position: relative;
+    .hero-figure {
+      margin: 0;
       width: 100%;
-      height: 55vh;
-      max-height: 420px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: linear-gradient(155deg, #ddd5cc 0%, #c8bfb4 50%, #b8afa4 100%);
     }
 
-    .hero__media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(to bottom, transparent 60%, #F5F2EE 100%);
-    }
-
-    @media (min-width: 768px) {
-      .hero__media {
-        position: relative;
-        flex: 0 0 48%;
-        max-width: 48%;
-        height: auto;
-        max-height: none;
-      }
-      .hero__media::after {
-        background: linear-gradient(to right, transparent 65%, var(--bg-light) 100%);
-      }
-    }
-
-    .hero__media.is-fallback .hero__img { display: none; }
-
-    .hero__img {
+    .hero-image {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 50vh;
       object-fit: cover;
-      object-position: center 20%;
-      display: block;
-      position: absolute;
-      inset: 0;
+      object-position: center 15%;
+      border-radius: 0;
     }
 
-    .hero__inner {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .hero-content {
+      padding: 2rem 1.5rem 2.5rem;
       text-align: center;
-      padding: 1.5rem 1.25rem 2.5rem;
-      background: var(--bg-light);
-      color: var(--text);
     }
 
-    @media (min-width: 768px) {
-      .hero__inner {
-        flex: 1;
-        justify-content: center;
-        padding: 2rem clamp(1.5rem, 4vw, 3rem);
-        padding-bottom: clamp(2.5rem, 8vh, 4rem);
-        background: transparent;
-      }
+    .hero-name {
+      font-size: 2rem;
+      margin-bottom: 0.35rem;
     }
 
-    .hero__box {
-      width: 100%;
-      max-width: 20rem;
-    }
-
-    @media (min-width: 768px) {
-      .hero__box { max-width: 24rem; }
-    }
-
-    h1 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(1.8rem, 6vw, 2.5rem);
-      line-height: 1.02;
-      letter-spacing: 0.01em;
-      margin: 0 0 0.4rem;
-      color: var(--text);
-    }
-
-    @media (min-width: 768px) {
-      h1 { font-size: 3.2rem; }
-    }
-
-    .subtitle {
-      font-family: var(--font-display);
+    .hero-subtitle {
+      font-family: "Playfair Display", Georgia, serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--accent);
-      margin: 0 0 1.25rem;
-      line-height: 1.35;
+      margin-bottom: 1.25rem;
     }
 
-    .lead {
-      font-weight: 300;
+    .hero-lead {
       font-size: 0.9rem;
       color: var(--text-soft);
-      margin: 0 0 0.6rem;
-      line-height: 1.6;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-sub-lead {
+    .hero-sublead {
       font-size: 0.8125rem;
-      font-weight: 300;
       color: var(--text-faded);
-      margin: 0 0 1rem;
-      line-height: 1.5;
     }
 
-    .meta {
+    .hero-meta {
       font-size: 0.75rem;
-      font-weight: 400;
       color: var(--text-faded);
-      letter-spacing: 0.08em;
-      margin: 0 0 1.75rem;
+      letter-spacing: 0.06em;
+      margin: 1.25rem 0 1.5rem;
     }
 
-    /* ——— Buttons ——— */
-
-    .btn-wa {
+    .btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 6px;
+      padding: 0.85rem 2rem;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 100%;
       max-width: 20rem;
-      padding: 0.9rem 2rem;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--btn-text) !important;
-      background: var(--btn-bg);
-      border: none;
-      border-radius: 6px;
-      text-decoration: none !important;
+      cursor: pointer;
       transition: background 0.2s;
     }
 
-    .btn-wa:hover {
+    .btn:hover {
       background: var(--btn-hover);
     }
 
-    /* ——— Sections ——— */
-
     .section {
-      border-top: 1px solid var(--lavender);
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
+      padding: clamp(3rem, 9vw, 5rem) 1.5rem;
+      border-top: 1px solid var(--line);
     }
 
-    .section:nth-child(even) {
-      background: var(--bg-warm);
+    .section:nth-of-type(odd) {
+      background: var(--bg);
+    }
+
+    .section:nth-of-type(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-inner {
+      max-width: 32rem;
+      margin: 0 auto;
     }
 
     .section h2 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(1.5rem, 4vw, 1.85rem);
-      line-height: 1.25;
-      letter-spacing: 0.06em;
-      margin: 0 0 1.75rem;
+      font-size: clamp(1.35rem, 3.5vw, 1.65rem);
       text-align: left;
+      margin-bottom: 1.5rem;
     }
 
-    /* ——— Lists ——— */
-
-    .list-plain {
+    .clean-list {
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .list-plain li {
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--lavender);
-      font-weight: 300;
+    .clean-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--line);
       font-size: 0.9rem;
       color: var(--text-soft);
       line-height: 1.6;
+      text-align: left;
     }
 
-    .list-plain li:last-child {
+    .clean-list li:last-child {
       border-bottom: none;
     }
 
-    .kw,
-    .list-kw {
+    .list-kw,
+    .kw {
       font-weight: 400;
       color: var(--text);
     }
 
-    /* ——— Callout ——— */
-
     .callout {
-      margin-top: 1.75rem;
-      padding: 0 0 0 1.25rem;
       border-left: 2px solid var(--accent);
-      background: none;
-      border-radius: 0;
-      font-size: 0.875rem;
+      padding-left: 1rem;
       font-style: italic;
-      font-weight: 300;
+      font-size: 0.875rem;
       color: var(--text-soft);
-      line-height: 1.65;
-      text-align: left;
-    }
-
-    /* ——— Steps ——— */
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
+      margin-top: 1.5rem;
     }
 
     .step {
       display: flex;
       gap: 1rem;
       align-items: flex-start;
-      text-align: left;
+      padding: 0.75rem 0;
     }
 
-    .step__num {
-      flex-shrink: 0;
+    .step:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    .step-num {
       width: 1.75rem;
       height: 1.75rem;
       border-radius: 50%;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
+      flex-shrink: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       font-weight: 400;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
     }
 
     .step p {
-      margin: 0;
-      font-weight: 300;
       font-size: 0.9rem;
       color: var(--text-soft);
-      line-height: 1.65;
-      padding-top: 0.1rem;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    .step-lead {
+    .step-kw {
       font-weight: 400;
       color: var(--text);
     }
 
-    .section--steps h2 {
-      margin-bottom: 1.5rem;
-    }
-
-    /* ——— About ——— */
-
-    .section--about h2 {
-      text-align: left;
-    }
-
-    .about {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .about-wrap {
       text-align: center;
-      gap: 0;
     }
 
-    @media (min-width: 768px) {
-      .about {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 2.5rem;
-      }
-    }
-
-    .about__figure {
-      width: auto;
-      text-align: center;
+    .about-figure {
       margin: 0 auto 1.5rem;
-      flex-shrink: 0;
+      width: 65%;
+      max-width: 240px;
     }
 
-    .about__figure--missing {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .about__figure {
-        width: 200px;
-        margin: 0;
-      }
-    }
-
-    .about__img {
-      display: block;
-      width: 70%;
-      max-width: 260px;
+    .about-image {
+      width: 100%;
+      max-width: 240px;
       aspect-ratio: 3 / 4;
-      max-height: 320px;
-      margin: 0 auto;
+      max-height: 300px;
       object-fit: cover;
       object-position: center 15%;
       border-radius: 10px;
+      margin: 0 auto;
     }
 
-    @media (min-width: 768px) {
-      .about__img {
-        width: 200px;
-        max-width: none;
-        max-height: 280px;
-      }
-    }
-
-    .about__text {
-      margin: 0;
+    .about-text {
+      text-align: center;
       font-size: 0.875rem;
-      font-weight: 300;
       color: var(--text-soft);
       line-height: 1.75;
     }
 
-    .about__lead {
+    .about-kw {
       font-weight: 400;
       color: var(--text);
     }
-
-    /* ——— Price ——— */
 
     .price-block {
       text-align: center;
     }
 
-    .price {
-      font-family: var(--font-display);
+    .price-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2.2rem;
       font-weight: 400;
-      font-size: 2.25rem;
-      letter-spacing: 0.04em;
       color: var(--text);
-      margin: 0 0 0.5rem;
-      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-meta {
+      font-size: 0.8125rem;
+      color: var(--text-faded);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
     }
 
     .price-note {
       font-size: 0.8125rem;
-      font-weight: 400;
       color: var(--text-faded);
-      letter-spacing: 0.06em;
-      margin: 0 0 0.35rem;
-    }
-
-    .price-note:last-of-type {
-      margin-bottom: 1.75rem;
-    }
-
-    .price-block .btn-wa {
-      margin-inline: auto;
+      margin-bottom: 1.5rem;
     }
 
     .price-hint {
-      margin: 1rem 0 0;
-      font-size: 0.8125rem;
-      font-weight: 300;
+      font-size: 0.8rem;
       color: var(--text-faded);
+      margin-top: 0.75rem;
     }
 
-    .section--price h2 {
+    .final-cta {
       text-align: center;
     }
 
-    /* ——— CTA Final ——— */
-
-    .section--cta .content {
-      text-align: center;
-    }
-
-    .cta-final__text {
-      margin: 0 auto 1.35rem;
-      max-width: 24rem;
-      font-size: 0.9375rem;
+    .final-cta-text {
       font-style: italic;
-      font-weight: 300;
+      font-size: 0.9375rem;
       color: var(--text-soft);
-      line-height: 1.55;
+      margin-bottom: 1.5rem;
     }
-
-    .section--cta .btn-wa {
-      margin-inline: auto;
-    }
-
-    .section--cta h2 {
-      text-align: center;
-    }
-
-    /* ——— Footer ——— */
 
     footer {
-      border-top: 1px solid var(--lavender);
-      padding: 3rem 1rem 2.5rem;
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 1rem;
       text-align: center;
+      background: var(--bg);
     }
 
-    footer a {
-      font-size: 0.7rem;
-      font-weight: 400;
+    .footer-link {
+      font-size: 0.75rem;
       color: var(--text-faded);
+      letter-spacing: 0.04em;
       text-decoration: none;
-      letter-spacing: 0.1em;
     }
 
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    .copyright {
-      margin: 0.5rem 0 0;
+    .footer-copy {
       font-size: 0.65rem;
-      font-weight: 300;
       color: var(--text-faded);
       opacity: 0.6;
-      letter-spacing: 0.08em;
+      margin-top: 0.4rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .hero-figure {
+        flex: 0 0 48%;
+        height: 100vh;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100vh;
+        max-height: none;
+      }
+
+      .hero-content {
+        flex: 1;
+        padding: 3rem;
+        text-align: center;
+        max-width: 28rem;
+        margin: 0 auto;
+      }
+
+      .hero-name {
+        font-size: 3rem;
+      }
+
+      .about-wrap {
+        display: flex;
+        gap: 2.5rem;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .about-figure {
+        width: 200px;
+        flex-shrink: 0;
+        margin: 0;
+      }
+
+      .about-image {
+        width: 200px;
+      }
+
+      .about-text {
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
-
-  <section class="hero">
-    <div class="hero__media">
-      <img class="hero__img" src="hero.jpg" alt="" width="900" height="1100" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.parentElement.classList.add('is-fallback')">
+  <header class="hero">
+    <figure class="hero-figure">
+      <img
+        class="hero-image"
+        src="hero.jpg"
+        alt="Оксана Султанова"
+        width="1200"
+        height="1600"
+        fetchpriority="high"
+        decoding="async"
+        onerror="this.closest('figure').style.display='none';"
+      >
+    </figure>
+    <div class="hero-content">
+      <h1 class="hero-name">Oksana Sultanowa</h1>
+      <p class="hero-subtitle">Онлайн-консультация по волосам</p>
+      <p class="hero-lead">Разберём, что делать с волосами — без ошибок и лишних экспериментов</p>
+      <p class="hero-sublead">Разбор состояния волос, рекомендации по цвету, стрижке и уходу</p>
+      <p class="hero-meta">30–40 минут · онлайн</p>
+      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
     </div>
-    <div class="hero__inner">
-      <div class="hero__box">
-        <h1>Oksana Sultanowa</h1>
-        <p class="subtitle">Онлайн-консультация по волосам</p>
-        <p class="lead">Разберём, что делать с волосами — без ошибок и лишних экспериментов</p>
-        <p class="hero-sub-lead">Разбор состояния волос, рекомендации по цвету, стрижке и уходу</p>
-        <p class="meta">30–40 минут · онлайн</p>
-        <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
-      </div>
-    </div>
-  </section>
+  </header>
 
-  <section class="section section--audience" aria-labelledby="h-audience">
-    <div class="content">
-      <h2 id="h-audience">Кому подойдёт консультация</h2>
-      <ul class="list-plain">
+  <section class="section" aria-labelledby="who">
+    <div class="section-inner">
+      <h2 id="who">Кому подойдёт консультация</h2>
+      <ul class="clean-list">
         <li><span class="list-kw">Если</span> вы хотите изменить цвет, но не уверены</li>
         <li><span class="list-kw">Если</span> не понимаете, что вам пойдёт</li>
         <li><span class="list-kw">Если</span> был неудачный результат</li>
@@ -543,10 +436,10 @@
     </div>
   </section>
 
-  <section class="section section--receive" aria-labelledby="h-receive">
-    <div class="content">
-      <h2 id="h-receive">Что вы получите</h2>
-      <ul class="list-plain">
+  <section class="section" aria-labelledby="get">
+    <div class="section-inner">
+      <h2 id="get">Что вы получите</h2>
+      <ul class="clean-list">
         <li><span class="kw">Понимание,</span> что можно делать с вашими волосами</li>
         <li><span class="kw">Рекомендации по цвету</span> и стрижке</li>
         <li><span class="kw">Подбор ухода</span> под текущее состояние</li>
@@ -557,84 +450,91 @@
     </div>
   </section>
 
-  <section class="section section--steps" aria-labelledby="h-steps">
-    <div class="content">
-      <h2 id="h-steps">Как проходит консультация</h2>
-      <div class="steps">
-        <div class="step">
-          <span class="step__num" aria-hidden="true">1</span>
-          <p><span class="step-lead">Вы отправляете фото</span> волос и коротко описываете запрос</p>
-        </div>
-        <div class="step">
-          <span class="step__num" aria-hidden="true">2</span>
-          <p><span class="step-lead">Я смотрю состояние</span> и задаю уточняющие вопросы</p>
-        </div>
-        <div class="step">
-          <span class="step__num" aria-hidden="true">3</span>
-          <p><span class="step-lead">Мы проводим консультацию</span> онлайн</p>
-        </div>
-        <div class="step">
-          <span class="step__num" aria-hidden="true">4</span>
-          <p><span class="step-lead">Вы получаете рекомендации</span> и понимаете, что делать дальше</p>
-        </div>
+  <section class="section" aria-labelledby="steps">
+    <div class="section-inner">
+      <h2 id="steps">Как проходит консультация</h2>
+      <div class="step">
+        <span class="step-num">1</span>
+        <p><span class="step-kw">Вы отправляете фото</span> волос и коротко описываете запрос</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <p><span class="step-kw">Я смотрю состояние</span> и задаю уточняющие вопросы</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <p><span class="step-kw">Мы проводим консультацию</span> онлайн</p>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <p><span class="step-kw">Вы получаете рекомендации</span> и понимаете, что делать дальше</p>
       </div>
     </div>
   </section>
 
-  <section class="section section--about" aria-labelledby="h-about">
-    <div class="content">
-      <h2 id="h-about">Обо мне</h2>
-      <div class="about">
-        <figure class="about__figure">
-          <img class="about__img" src="hero.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" onerror="this.onerror=null;this.closest('.about__figure').classList.add('about__figure--missing')">
+  <section class="section" aria-labelledby="about">
+    <div class="section-inner">
+      <h2 id="about">Обо мне</h2>
+      <div class="about-wrap">
+        <figure class="about-figure">
+          <img
+            class="about-image"
+            src="hero.jpg"
+            alt="Оксана Султанова"
+            width="600"
+            height="800"
+            loading="lazy"
+            decoding="async"
+            onerror="this.closest('figure').style.display='none';"
+          >
         </figure>
-        <p class="about__text"><span class="about__lead">Оксана Султанова</span> — парикмахер-колорист<br>
-<span class="about__lead">25 лет в профессии</span><br>
-Работаю со стрижками, окрашиванием<br>
-и сложными случаями<br>
-Ранее — основатель академии<br>
-и преподаватель<br>
-Ко мне приходят, когда хотят<br>
-что-то изменить<br>
-или исправить состояние волос<br>
-Консультация — это возможность<br>
-разобраться до того, как что-то делать</p>
+        <p class="about-text">
+          <span class="about-kw">Оксана Султанова</span> — парикмахер-колорист<br>
+          <span class="about-kw">25 лет в профессии</span><br>
+          Работаю со стрижками, окрашиванием<br>
+          и сложными случаями<br>
+          Ранее — основатель академии<br>
+          и преподаватель<br>
+          Ко мне приходят, когда хотят<br>
+          что-то изменить<br>
+          или исправить состояние волос<br>
+          Консультация — это возможность<br>
+          разобраться до того, как что-то делать
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="section section--price" aria-labelledby="h-price">
-    <div class="content price-block">
-      <h2 id="h-price">Стоимость</h2>
-      <p class="price">150 zł</p>
-      <p class="price-note">30–40 минут · онлайн</p>
+  <section class="section" aria-labelledby="price">
+    <div class="section-inner price-block">
+      <h2 id="price">Стоимость</h2>
+      <p class="price-title">150 zł</p>
+      <p class="price-meta">30–40 минут · онлайн</p>
       <p class="price-note">Оплата возможна из любой страны</p>
-      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
       <p class="price-hint">Напишите — и мы договоримся о времени</p>
     </div>
   </section>
 
-  <section class="section section--cta" aria-label="Запись на консультацию">
-    <div class="content">
-      <p class="cta-final__text">Можно начать с консультации. Сначала разобраться — потом менять</p>
-      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+  <section class="section" aria-label="Финальный призыв">
+    <div class="section-inner final-cta">
+      <p class="final-cta-text">Можно начать с консультации. Сначала разобраться — потом менять</p>
+      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
     </div>
   </section>
 
   <footer>
-    <a href="https://instagram.com/oksana_fryzjer" target="_blank" rel="noopener noreferrer">@oksana_fryzjer</a>
-    <p class="copyright">© 2026 Oksana Sultanowa</p>
+    <a class="footer-link" href="https://instagram.com/oksana_fryzjer" target="_blank" rel="noopener noreferrer">@oksana_fryzjer</a>
+    <p class="footer-copy">© 2026 Oksana Sultanowa</p>
   </footer>
 
   <script>
-    (function () {
-      var phone = "48794513460";
-      var text = "Привет! Хочу записаться на консультацию.";
-      var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(text);
-      document.querySelectorAll("a.wa-link").forEach(function (a) {
-        a.setAttribute("href", url);
-      });
-    })();
+  (function(){
+    var phone="48794513460";
+    var text="Привет! Хочу записаться на консультацию.";
+    var url="https://wa.me/"+phone+"?text="+encodeURIComponent(text);
+    document.querySelectorAll("a.wa-link").forEach(function(a){a.setAttribute("href",url);});
+  })();
   </script>
 </body>
 </html>
