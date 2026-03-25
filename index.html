@@ -26,22 +26,20 @@
 
   <style>
     :root {
-      --bg: #f5f2ee;
-      --text: #3a3632;
-      --muted: #8a837c;
+      --bg-light: #F5F2EE;
+      --bg-warm: #EDE8E2;
+      --text: #2d2a26;
+      --text-soft: #7d756e;
+      --text-faded: #a49d96;
       --accent: #b8a99a;
-      --accent-soft: rgba(184, 169, 154, 0.12);
-      --whatsapp: #25d366;
-      --whatsapp-hover: #20bd5a;
-      --btn-beige: #c6b7a6;
-      --btn-beige-hover: #b8a896;
-      --btn-text: #2b2b2b;
-      --lavender: #b8b0c4;
-      --rule: rgba(184, 176, 196, 0.15);
+      --lavender: rgba(168, 160, 185, 0.2);
+      --btn-bg: #C6B7A6;
+      --btn-text: #2B2B2B;
+      --btn-hover: #b8a896;
       --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
       --font-body: "Inter", system-ui, sans-serif;
-      --section-pad: clamp(4rem, 12vw, 7rem);
-      --content: 36rem;
+      --section-pad: clamp(3.5rem, 10vw, 5.5rem);
+      --content: 32rem;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -49,11 +47,11 @@
     body {
       margin: 0;
       font-family: var(--font-body);
-      font-weight: 400;
+      font-weight: 300;
       font-size: 1rem;
       line-height: 1.6;
       color: var(--text);
-      background: var(--bg);
+      background: var(--bg-light);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -67,6 +65,7 @@
     }
 
     /* ——— Hero ——— */
+
     .hero {
       position: relative;
       display: flex;
@@ -87,7 +86,7 @@
       inset: 0;
       z-index: 0;
       overflow: hidden;
-      background: linear-gradient(155deg, #ebe6df 0%, #ddd5cc 50%, #cfc4b8 100%);
+      background: linear-gradient(155deg, #ddd5cc 0%, #c8bfb4 50%, #b8afa4 100%);
     }
 
     .hero__media::after {
@@ -95,18 +94,22 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(to top, #F5F2EE 0%, rgba(245,242,238,0.92) 30%, rgba(245,242,238,0.4) 55%, transparent 75%);
+      background: linear-gradient(to top,
+        #F5F2EE 0%,
+        rgba(245,242,238,0.97) 20%,
+        rgba(245,242,238,0.75) 45%,
+        rgba(245,242,238,0.15) 65%,
+        transparent 80%);
     }
 
     @media (min-width: 768px) {
       .hero__media {
         position: relative;
-        flex: 0 0 45%;
-        max-width: 45%;
+        flex: 0 0 48%;
+        max-width: 48%;
       }
-
       .hero__media::after {
-        background: linear-gradient(to right, transparent 70%, var(--bg) 100%);
+        background: linear-gradient(to right, transparent 65%, var(--bg-light) 100%);
       }
     }
 
@@ -132,7 +135,7 @@
       justify-content: flex-end;
       text-align: center;
       padding: 2rem clamp(1.25rem, 5vw, 2rem);
-      padding-bottom: clamp(4rem, 12vh, 6rem);
+      padding-bottom: 2rem;
       color: var(--text);
     }
 
@@ -141,22 +144,12 @@
         justify-content: center;
         padding: 2rem clamp(1.5rem, 4vw, 3rem);
         padding-bottom: clamp(2.5rem, 8vh, 4rem);
-        max-width: none;
       }
-    }
-
-    .hero__inner .lead,
-    .hero__inner .meta {
-      color: var(--muted);
-    }
-
-    .hero__inner .subtitle {
-      color: var(--accent);
     }
 
     .hero__box {
       width: 100%;
-      max-width: 22rem;
+      max-width: 20rem;
     }
 
     @media (min-width: 768px) {
@@ -165,193 +158,151 @@
 
     h1 {
       font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(2.5rem, 9vw, 3.65rem);
+      font-weight: 400;
+      font-size: clamp(2.2rem, 7.5vw, 3rem);
       line-height: 1.02;
-      letter-spacing: 0.02em;
-      margin: 0 0 0.6rem;
+      letter-spacing: 0.01em;
+      margin: 0 0 0.4rem;
+      color: var(--text);
     }
 
-    .hero h1 {
-      color: var(--text);
+    @media (min-width: 768px) {
+      h1 { font-size: 3.2rem; }
     }
 
     .subtitle {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 400;
-      font-size: 1.2rem;
-      margin: 0 0 1.35rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin: 0 0 1.25rem;
       line-height: 1.35;
-      letter-spacing: 0.02em;
     }
 
     .lead {
       font-weight: 300;
-      font-size: 0.96875rem;
-      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin: 0 0 0.6rem;
       line-height: 1.6;
     }
 
     .hero-sub-lead {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--text-faded);
       margin: 0 0 1rem;
       line-height: 1.5;
     }
 
     .meta {
-      font-size: 0.8125rem;
+      font-size: 0.75rem;
       font-weight: 400;
-      margin: 0 0 2.25rem;
-      letter-spacing: 0.04em;
+      color: var(--text-faded);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 1.75rem;
     }
+
+    /* ——— Buttons ——— */
 
     .btn-wa {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      padding: 0.85rem 2rem;
+      max-width: 20rem;
+      padding: 0.9rem 2rem;
       font-family: var(--font-body);
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--btn-text) !important;
-      background: var(--btn-beige);
+      background: var(--btn-bg);
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none !important;
+      transition: background 0.2s;
     }
 
     .btn-wa:hover {
-      background: var(--btn-beige-hover);
-      color: var(--btn-text) !important;
-    }
-
-    .list-kw {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .step-lead {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .about__lead {
-      font-weight: 500;
-      color: var(--text);
+      background: var(--btn-hover);
     }
 
     /* ——— Sections ——— */
+
     .section {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid var(--lavender);
       padding: var(--section-pad) 0;
+      background: var(--bg-light);
+    }
+
+    .section:nth-child(even) {
+      background: var(--bg-warm);
     }
 
     .section h2 {
       font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(1.65rem, 4.5vw, 2rem);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 4vw, 1.85rem);
       line-height: 1.25;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       margin: 0 0 1.75rem;
-      text-align: center;
+      text-align: left;
     }
+
+    /* ——— Lists ——— */
 
     .list-plain {
       margin: 0;
       padding: 0;
       list-style: none;
-      text-align: center;
-    }
-
-    @media (min-width: 600px) {
-      .section--audience .list-plain,
-      .section--receive .list-plain { text-align: left; }
-      .section--audience h2,
-      .section--receive h2 { text-align: left; }
     }
 
     .list-plain li {
-      position: relative;
-      padding-left: 1.15rem;
-      margin-bottom: 1.15rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--lavender);
       font-weight: 300;
-      font-size: 0.96875rem;
-      color: var(--muted);
-      line-height: 1.7;
-      text-align: left;
-      max-width: 100%;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.6;
     }
 
     .list-plain li:last-child {
-      margin-bottom: 0;
+      border-bottom: none;
     }
 
-    .content > .list-plain {
-      margin-inline: auto;
-    }
-
-    @media (min-width: 600px) {
-      .section--audience .content > .list-plain,
-      .section--receive .content > .list-plain {
-        margin-inline: 0;
-      }
-    }
-
-    .list-plain li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: 0.55;
-    }
-
-    @media (max-width: 599px) {
-      .section--audience .list-plain li,
-      .section--receive .list-plain li {
-        text-align: center;
-        padding-left: 0;
-      }
-      .section--audience .list-plain li::before,
-      .section--receive .list-plain li::before {
-        display: none;
-      }
-    }
-
-    .kw {
-      font-weight: 500;
+    .kw,
+    .list-kw {
+      font-weight: 400;
       color: var(--text);
     }
 
+    /* ——— Callout ——— */
+
     .callout {
-      margin-top: 2rem;
-      padding: 0 0 0 1rem;
+      margin-top: 1.75rem;
+      padding: 0 0 0 1.25rem;
       border-left: 2px solid var(--accent);
       background: none;
       border-radius: 0;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-style: italic;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--text-soft);
       line-height: 1.65;
-      text-align: center;
+      text-align: left;
     }
 
-    @media (min-width: 600px) {
-      .callout { text-align: left; }
-    }
+    /* ——— Steps ——— */
 
     .steps {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
 
     .step {
@@ -363,42 +314,42 @@
 
     .step__num {
       flex-shrink: 0;
-      width: 2rem;
-      height: 2rem;
+      width: 1.75rem;
+      height: 1.75rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-body);
-      font-size: 0.8125rem;
+      font-size: 0.75rem;
       font-weight: 400;
       background: transparent;
-      border: 1px solid var(--lavender);
-      color: var(--lavender);
+      border: 1px solid var(--accent);
+      color: var(--accent);
     }
 
     .step p {
       margin: 0;
       font-weight: 300;
-      font-size: 0.96875rem;
-      color: var(--muted);
+      font-size: 0.9rem;
+      color: var(--text-soft);
       line-height: 1.65;
-      padding-top: 0.15rem;
+      padding-top: 0.1rem;
+    }
+
+    .step-lead {
+      font-weight: 400;
+      color: var(--text);
     }
 
     .section--steps h2 {
       margin-bottom: 1.5rem;
     }
 
-    .section--about h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
+    /* ——— About ——— */
 
-    @media (min-width: 768px) {
-      .section--about h2 {
-        text-align: left;
-      }
+    .section--about h2 {
+      text-align: left;
     }
 
     .about {
@@ -414,14 +365,14 @@
         flex-direction: row;
         align-items: flex-start;
         text-align: left;
-        gap: 2rem;
+        gap: 2.5rem;
       }
     }
 
     .about__figure {
-      width: 100%;
+      width: auto;
       text-align: center;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.5rem;
       flex-shrink: 0;
     }
 
@@ -429,38 +380,47 @@
       display: none;
     }
 
+    @media (min-width: 768px) {
+      .about__figure {
+        width: 200px;
+        margin: 0;
+      }
+    }
+
     .about__img {
-      width: 88%;
-      aspect-ratio: 3 / 4;
-      max-height: 380px;
-      margin: 0 auto;
       display: block;
+      width: 70%;
+      max-width: 260px;
+      aspect-ratio: 3 / 4;
+      max-height: 320px;
+      margin: 0 auto;
       object-fit: cover;
-      object-position: center 20%;
-      border-radius: 14px;
+      object-position: center 15%;
+      border-radius: 10px;
     }
 
     @media (min-width: 768px) {
-      .about__figure {
-        width: 220px;
-        text-align: left;
-        margin: 0;
-      }
       .about__img {
-        width: 220px;
-        max-height: 300px;
-        aspect-ratio: auto;
+        width: 200px;
+        max-width: none;
+        max-height: 280px;
       }
     }
 
     .about__text {
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 100%;
+      color: var(--text-soft);
+      line-height: 1.75;
     }
+
+    .about__lead {
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    /* ——— Price ——— */
 
     .price-block {
       text-align: center;
@@ -468,19 +428,20 @@
 
     .price {
       font-family: var(--font-display);
-      font-weight: 500;
-      font-size: 1.8rem;
+      font-weight: 400;
+      font-size: 2.25rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
       margin: 0 0 0.5rem;
       line-height: 1.2;
-      letter-spacing: 0.02em;
     }
 
     .price-note {
       font-size: 0.8125rem;
       font-weight: 400;
-      color: var(--muted);
+      color: var(--text-faded);
+      letter-spacing: 0.06em;
       margin: 0 0 0.35rem;
-      letter-spacing: 0.03em;
     }
 
     .price-note:last-of-type {
@@ -488,7 +449,6 @@
     }
 
     .price-block .btn-wa {
-      max-width: 22rem;
       margin-inline: auto;
     }
 
@@ -496,8 +456,14 @@
       margin: 1rem 0 0;
       font-size: 0.8125rem;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--text-faded);
     }
+
+    .section--price h2 {
+      text-align: center;
+    }
+
+    /* ——— CTA Final ——— */
 
     .section--cta .content {
       text-align: center;
@@ -507,43 +473,35 @@
       margin: 0 auto 1.35rem;
       max-width: 24rem;
       font-size: 0.9375rem;
+      font-style: italic;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--text-soft);
       line-height: 1.55;
     }
 
     .section--cta .btn-wa {
-      max-width: 22rem;
       margin-inline: auto;
     }
 
-    /* Steps & pricing: center heading on mobile, left on larger if desired - user said text center mobile */
-    .section--steps .content {
+    .section--cta h2 {
       text-align: center;
     }
 
-    .section--steps .steps {
-      margin-top: 0;
-      text-align: left;
-    }
-
-    @media (min-width: 600px) {
-      .section--steps .content { text-align: left; }
-      .section--steps h2 { text-align: left; }
-    }
+    /* ——— Footer ——— */
 
     footer {
-      border-top: 1px solid var(--rule);
-      padding: clamp(4rem, 12vw, 6rem) 1rem 3rem;
+      border-top: 1px solid var(--lavender);
+      padding: 3rem 1rem 2.5rem;
       text-align: center;
     }
 
     footer a {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 400;
-      color: var(--muted);
+      color: var(--text-faded);
       text-decoration: none;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     footer a:hover {
@@ -552,11 +510,11 @@
 
     .copyright {
       margin: 0.5rem 0 0;
-      font-size: 0.6875rem;
+      font-size: 0.65rem;
       font-weight: 300;
-      color: var(--muted);
-      opacity: 0.75;
-      letter-spacing: 0.06em;
+      color: var(--text-faded);
+      opacity: 0.6;
+      letter-spacing: 0.08em;
     }
   </style>
 </head>
