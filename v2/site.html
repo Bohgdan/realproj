@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oksana Sultanowa - онлайн-консультация по волосам</title>
+  <meta name="description" content="Онлайн-консультация по цвету, стрижке и уходу за волосами. Четкий план действий без лишних экспериментов.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bohgdan.github.io/realproj/v2/site.html">
+  <meta property="og:title" content="Oksana Sultanowa - онлайн-консультация по волосам">
+  <meta property="og:description" content="Персональная консультация по волосам: цвет, стрижка, уход и восстановление после неудачных процедур.">
+  <meta property="og:image" content="https://bohgdan.github.io/realproj/v2/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oksana Sultanowa - онлайн-консультация по волосам">
+  <meta name="twitter:description" content="Разберем вашу ситуацию и подберем правильные решения по волосам.">
+  <meta name="twitter:image" content="https://bohgdan.github.io/realproj/v2/hero.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='22' fill='%23ad8f72'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --bg-alt: #efe8df;
+      --card: #ffffff;
+      --text: #1f1b17;
+      --text-soft: #4f463e;
+      --text-faded: #746b62;
+      --accent: #ad8f72;
+      --line: rgba(55, 44, 34, 0.16);
+      --btn-bg: #2f2720;
+      --btn-hover: #1f1914;
+      --btn-text: #ffffff;
+      --radius: 14px;
+      --content: 72rem;
+      --measure: 34rem;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-soft);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    h1, h2 {
+      margin: 0;
+      color: var(--text);
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    p { margin: 0; }
+    .container { width: min(100% - 2.2rem, var(--content)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 21rem;
+      padding: 0.95rem 1.4rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--btn-hover); }
+    .hero { padding: clamp(1rem, 3vw, 1.8rem) 0 clamp(3rem, 8vw, 4.8rem); }
+    .hero-wrap {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 2px);
+      overflow: hidden;
+      display: grid;
+    }
+    .hero-media { margin: 0; min-height: 48vh; background: #ddd3c7; }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 48vh;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+    .hero-content { padding: clamp(1.5rem, 4vw, 2.8rem); }
+    .hero h1 { font-size: clamp(2rem, 8vw, 4rem); line-height: 1.05; margin-bottom: 0.7rem; }
+    .hero-subtitle {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      margin-bottom: 1rem;
+    }
+    .hero-lead { max-width: var(--measure); color: var(--text-soft); font-size: 0.99rem; margin-bottom: 1.2rem; }
+    .hero-meta { color: var(--text-faded); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.45rem; }
+    .section { padding: clamp(2.9rem, 7vw, 4.6rem) 0; border-top: 1px solid var(--line); }
+    .section.alt { background: var(--bg-alt); }
+    .section-grid { display: grid; gap: 1.7rem; }
+    .section h2 { font-size: clamp(1.45rem, 4vw, 2.2rem); line-height: 1.2; margin-bottom: 0.85rem; }
+    .copy { max-width: var(--measure); color: var(--text-soft); font-size: 0.96rem; }
+    .cards { display: grid; gap: 0.85rem; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.05rem; font-size: 0.93rem; }
+    .card strong { color: var(--text); font-weight: 500; }
+    .process-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.75rem; }
+    .process-list li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.85rem; align-items: start; border-bottom: 1px solid var(--line); padding-bottom: 0.9rem; }
+    .process-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .num { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 500; margin-top: 0.1rem; }
+    .process-list strong { color: var(--text); font-weight: 500; }
+    .about-box { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; }
+    .about-media { margin: 0; background: #ddd3c7; }
+    .about-media img { width: 100%; height: 100%; min-height: 23rem; object-fit: cover; object-position: center 15%; }
+    .about-content { padding: clamp(1.4rem, 4vw, 2.2rem); }
+    .about-copy { max-width: 39ch; font-size: 0.95rem; color: var(--text-soft); }
+    .about-copy strong { color: var(--text); font-weight: 500; }
+    .price-panel { width: min(100%, 34rem); margin: 0 auto; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.4rem); }
+    .price-value { color: var(--text); font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 8vw, 3rem); line-height: 1; margin-bottom: 0.75rem; }
+    .price-meta { color: var(--text-faded); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.33rem; }
+    .price-note { color: var(--text-faded); font-size: 0.87rem; margin-bottom: 1.2rem; }
+    .price-foot { margin-top: 0.75rem; color: var(--text-faded); font-size: 0.8rem; }
+    .final { text-align: center; padding-bottom: clamp(3rem, 7vw, 4.8rem); }
+    .final p { margin: 0 auto 1.25rem; max-width: 36ch; color: var(--text-soft); font-size: 1rem; font-style: italic; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 2.4rem; text-align: center; }
+    footer a { color: var(--text-faded); text-decoration: none; letter-spacing: 0.04em; font-size: 0.76rem; }
+    footer p { margin-top: 0.45rem; color: var(--text-faded); opacity: 0.8; font-size: 0.68rem; }
+    @media (min-width: 860px) {
+      .hero-wrap { grid-template-columns: 46% 54%; min-height: 90vh; }
+      .hero-media, .hero-media img { min-height: 90vh; }
+      .hero-content { display: flex; flex-direction: column; justify-content: center; }
+      .section-grid.two-col { grid-template-columns: 1fr 1fr; align-items: start; }
+      .about-box { grid-template-columns: 40% 60%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-wrap">
+        <figure class="hero-media">
+          <img src="hero.jpg" alt="Оксана Султанова" width="1200" height="1600" fetchpriority="high" decoding="async" onerror="this.closest('figure').style.display='none';">
+        </figure>
+        <div class="hero-content">
+          <span class="eyebrow">Hair Color Expert</span>
+          <h1>Oksana Sultanowa</h1>
+          <p class="hero-subtitle">Онлайн-консультация по волосам</p>
+          <p class="hero-lead">Вы получите понятный и безопасный план: что делать с цветом, как подстричься, как восстановить качество волос и чего сейчас точно лучше избегать.</p>
+          <p class="hero-meta">30-40 минут • онлайн</p>
+          <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться в WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container section-grid two-col">
+      <div>
+        <span class="eyebrow">Кому подойдет</span>
+        <h2>Чтобы не делать шаги наугад</h2>
+        <p class="copy">Если нужно обновить образ, исправить неудачный результат или просто понять, что именно пойдет вам по структуре волос и тону внешности.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><strong>Если</strong> хотите сменить цвет, но сомневаетесь в результате.</div>
+        <div class="card"><strong>Если</strong> есть повреждение длины и непонятно, как восстановить волосы.</div>
+        <div class="card"><strong>Если</strong> нужен профессиональный взгляд до визита в салон.</div>
+        <div class="card"><strong>Если</strong> хотите изменить образ мягко, стильно и без риска.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container section-grid two-col">
+      <div>
+        <span class="eyebrow">Процесс</span>
+        <h2>Как проходит консультация</h2>
+        <p class="copy">Формат простой и понятный: вы отправляете исходные данные, мы созваниваемся и разбираем конкретные решения под вашу ситуацию.</p>
+      </div>
+      <ol class="process-list">
+        <li><span class="num">1</span><p><strong>Вы отправляете фото</strong> и коротко описываете запрос.</p></li>
+        <li><span class="num">2</span><p><strong>Я анализирую состояние</strong> и задаю уточняющие вопросы.</p></li>
+        <li><span class="num">3</span><p><strong>Проводим онлайн-встречу</strong> и собираем персональную стратегию.</p></li>
+        <li><span class="num">4</span><p><strong>Вы получаете план действий</strong> по цвету, стрижке и уходу.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-box">
+        <figure class="about-media">
+          <img src="hero.jpg" alt="Портрет Оксаны Султановой" width="900" height="1200" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none';">
+        </figure>
+        <div class="about-content">
+          <span class="eyebrow">Обо мне</span>
+          <h2>Опыт, который экономит время и деньги</h2>
+          <p class="about-copy"><strong>Оксана Султанова</strong> - парикмахер-колорист с 25-летним опытом. Работаю со сложными случаями, коррекцией неудачных окрашиваний и подбором решений, которые сохраняют качество волос и подчеркивают индивидуальность.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="price-panel">
+        <span class="eyebrow">Стоимость</span>
+        <div class="price-value">150 zl</div>
+        <div class="price-meta">30-40 минут • онлайн</div>
+        <p class="price-note">Оплата возможна из любой страны</p>
+        <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+        <p class="price-foot">Напишите, и мы подберем удобное время</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container">
+      <p>Начните с консультации: сначала ясность и уверенность, потом любые изменения.</p>
+      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Хочу консультацию</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://instagram.com/oksana_fryzjer" target="_blank" rel="noopener noreferrer">@oksana_fryzjer</a>
+    <p>© 2026 Oksana Sultanowa</p>
+  </footer>
+
+  <script>
+  (function(){
+    var phone="48794513460";
+    var text="Привет! Хочу записаться на консультацию.";
+    var url="https://wa.me/"+phone+"?text="+encodeURIComponent(text);
+    document.querySelectorAll("a.wa-link").forEach(function(a){a.setAttribute("href",url);});
+  })();
+  </script>
+</body>
+</html>
