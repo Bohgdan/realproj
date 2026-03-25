@@ -100,12 +100,21 @@
       object-position: center 18%;
     }
     .hero-content { padding: clamp(1.5rem, 4vw, 2.8rem); }
-    .hero h1 { font-size: clamp(2rem, 8vw, 4rem); line-height: 1.05; margin-bottom: 0.7rem; }
-    .hero-subtitle {
+    .hero-name {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-faded);
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 {
       font-family: "Playfair Display", Georgia, serif;
       font-style: italic;
-      color: var(--accent);
-      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      font-size: clamp(2rem, 8vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--text);
       margin-bottom: 1rem;
     }
     .hero-lead { max-width: var(--measure); color: var(--text-soft); font-size: 0.99rem; margin-bottom: 1.2rem; }
@@ -129,6 +138,9 @@
     .about-content { padding: clamp(1.4rem, 4vw, 2.2rem); }
     .about-copy { max-width: 39ch; font-size: 0.95rem; color: var(--text-soft); }
     .about-copy strong { color: var(--text); font-weight: 500; }
+    .bio-list { list-style: none; padding: 0; margin: 0; }
+    .bio-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; color: var(--text-soft); line-height: 1.6; }
+    .bio-list li:last-child { border-bottom: none; }
     .price-panel { width: min(100%, 34rem); margin: 0 auto; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.4rem); }
     .price-value { color: var(--text); font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 8vw, 3rem); line-height: 1; margin-bottom: 0.75rem; }
     .price-meta { color: var(--text-faded); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.33rem; }
@@ -157,8 +169,8 @@
         </figure>
         <div class="hero-content">
           <span class="eyebrow">Hair Color Expert</span>
-          <h1>Oksana Sultanowa</h1>
-          <p class="hero-subtitle">Онлайн-консультация по волосам</p>
+          <span class="hero-name">Oksana Sultanowa</span>
+          <h1>Онлайн-консультация по волосам</h1>
           <p class="hero-lead">Разберём, что делать с вашими волосами — без ошибок, лишних экспериментов и потери качества. Понятный план по цвету, стрижке и уходу и восстановлению волос</p>
           <p class="hero-meta">30-40 минут • онлайн</p>
           <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться в WhatsApp</a>
@@ -199,6 +211,15 @@
 
   <section class="section">
     <div class="container">
+      <div style="background:var(--btn-bg); color:var(--btn-text); padding:2rem 2.5rem; border-radius:var(--radius); max-width:38rem; margin:0 auto;">
+        <span style="display:block; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:0.75rem;">Результат</span>
+        <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:1.2rem; line-height:1.65; color:var(--btn-text); margin:0;">После консультации вы точно знаете, чего хотите — и можете объяснить это любому мастеру в любом городе. Без растерянности в кресле, без лишних экспериментов.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
       <div class="about-box">
         <figure class="about-media" style="overflow:hidden; border-radius:12px;">
           <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;">
@@ -208,7 +229,13 @@
         <div class="about-content">
           <span class="eyebrow">Обо мне</span>
           <h2>Оксана Султанова — парикмахер-колорист</h2>
-          <p class="about-copy">25 лет в профессии<br>Работаю со сложными случаями и исправлением чужих ошибок<br>Подбираю стрижку, которая подойдет именно вам — с учетом структуры и состояния волос<br>В прошлом — основатель академии и преподаватель<br>Моя цель — не просто покрасить, а сохранить качество ваших волос</p>
+          <ul class="bio-list">
+            <li>25 лет в профессии</li>
+            <li>Работаю со сложными случаями и исправлением чужих ошибок</li>
+            <li>Подбираю стрижку, которая подойдет именно вам — с учетом структуры и состояния волос</li>
+            <li>В прошлом — основатель академии и преподаватель</li>
+            <li>Моя цель — не просто покрасить, а сохранить качество ваших волос</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -218,7 +245,7 @@
     <div class="container">
       <div class="price-panel">
         <span class="eyebrow">Стоимость</span>
-        <div class="price-value">150 zl</div>
+        <div class="price-value">40€</div>
         <div class="price-meta">30-40 минут • онлайн</div>
         <p class="price-note">Оплата возможна из любой страны</p>
         <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
