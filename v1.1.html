@@ -18,26 +18,30 @@
   <meta name="twitter:description" content="Онлайн-консультация по волосам. Запись в WhatsApp.">
   <meta name="twitter:image" content="https://oksanasultanowa.com/images/og.jpg">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23c8a882'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23b8a99a'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #1a1816;
-      --bg-alt: #211f1c;
-      --text: #e8e2da;
-      --muted: #9a918a;
-      --accent: #c8a882;
-      --accent-hover: #d4b896;
-      --rule: rgba(200, 168, 130, 0.12);
-      --rule-list: rgba(200, 168, 130, 0.08);
-      --font-display: "Playfair Display", Georgia, serif;
+      --bg: #f5f2ee;
+      --text: #3a3632;
+      --muted: #8a837c;
+      --accent: #b8a99a;
+      --accent-soft: rgba(184, 169, 154, 0.12);
+      --whatsapp: #25d366;
+      --whatsapp-hover: #20bd5a;
+      --btn-beige: #c6b7a6;
+      --btn-beige-hover: #b8a896;
+      --btn-text: #2b2b2b;
+      --lavender: #b8b0c4;
+      --rule: rgba(184, 176, 196, 0.15);
+      --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
       --font-body: "Inter", system-ui, sans-serif;
       --section-pad: clamp(4rem, 12vw, 7rem);
-      --content: 38rem;
+      --content: 36rem;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -45,16 +49,16 @@
     body {
       margin: 0;
       font-family: var(--font-body);
-      font-weight: 300;
+      font-weight: 400;
       font-size: 1rem;
-      line-height: 1.65;
-      color: var(--muted);
-      background: var(--bg-dark);
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
 
     .content {
-      width: min(100% - 2.5rem, var(--content));
+      width: min(100% - 2rem, var(--content));
       margin-inline: auto;
     }
 
@@ -65,11 +69,17 @@
     /* ——— Hero ——— */
     .hero {
       position: relative;
-      min-height: 100vh;
-      min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      background: var(--bg-dark);
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: stretch;
+      }
     }
 
     .hero__media {
@@ -77,14 +87,30 @@
       inset: 0;
       z-index: 0;
       overflow: hidden;
+      background: linear-gradient(155deg, #ebe6df 0%, #ddd5cc 50%, #cfc4b8 100%);
     }
 
     .hero__media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, var(--bg-dark) 0%, rgba(26, 24, 22, 0.85) 35%, rgba(26, 24, 22, 0.3) 60%, transparent 80%);
+      pointer-events: none;
+      background: linear-gradient(to top, #F5F2EE 0%, rgba(245,242,238,0.92) 30%, rgba(245,242,238,0.4) 55%, transparent 75%);
     }
+
+    @media (min-width: 768px) {
+      .hero__media {
+        position: relative;
+        flex: 0 0 45%;
+        max-width: 45%;
+      }
+
+      .hero__media::after {
+        background: linear-gradient(to right, transparent 70%, var(--bg) 100%);
+      }
+    }
+
+    .hero__media.is-fallback .hero__img { display: none; }
 
     .hero__img {
       width: 100%;
@@ -92,6 +118,8 @@
       object-fit: cover;
       object-position: center 15%;
       display: block;
+      position: absolute;
+      inset: 0;
     }
 
     .hero__inner {
@@ -100,21 +128,51 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: flex-end;
-      padding: 2rem 1.25rem 3rem;
+      text-align: center;
+      padding: 2rem clamp(1.25rem, 5vw, 2rem);
+      padding-bottom: clamp(4rem, 12vh, 6rem);
+      color: var(--text);
+    }
+
+    @media (min-width: 768px) {
+      .hero__inner {
+        justify-content: center;
+        padding: 2rem clamp(1.5rem, 4vw, 3rem);
+        padding-bottom: clamp(2.5rem, 8vh, 4rem);
+        max-width: none;
+      }
+    }
+
+    .hero__inner .lead,
+    .hero__inner .meta {
+      color: var(--muted);
+    }
+
+    .hero__inner .subtitle {
+      color: var(--accent);
     }
 
     .hero__box {
-      max-width: 26rem;
+      width: 100%;
+      max-width: 22rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero__box { max-width: 24rem; }
     }
 
     h1 {
       font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.6rem, 9vw, 3.8rem);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 9vw, 3.65rem);
       line-height: 1.02;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
       margin: 0 0 0.6rem;
+    }
+
+    .hero h1 {
       color: var(--text);
     }
 
@@ -122,136 +180,174 @@
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 400;
-      font-size: 1.15rem;
-      margin: 0 0 1.5rem;
+      font-size: 1.2rem;
+      margin: 0 0 1.35rem;
       line-height: 1.35;
       letter-spacing: 0.02em;
-      color: var(--accent);
     }
 
     .lead {
       font-weight: 300;
-      font-size: 0.9375rem;
+      font-size: 0.96875rem;
       margin: 0 0 0.75rem;
-      line-height: 1.65;
+      line-height: 1.6;
+    }
+
+    .hero-sub-lead {
+      font-size: 0.875rem;
+      font-weight: 300;
       color: var(--muted);
+      margin: 0 0 1rem;
+      line-height: 1.5;
     }
 
     .meta {
       font-size: 0.8125rem;
       font-weight: 400;
-      margin: 0 0 1.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
+      margin: 0 0 2.25rem;
+      letter-spacing: 0.04em;
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        align-items: stretch;
-      }
-
-      .hero__media {
-        position: relative;
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-
-      .hero__media::after {
-        background: linear-gradient(to right, transparent 65%, var(--bg-dark) 100%);
-      }
-
-      .hero__inner {
-        flex: 0 0 50%;
-        justify-content: center;
-        padding: 3rem clamp(2rem, 5vw, 4rem);
-      }
-
-      .hero__box {
-        max-width: 24rem;
-      }
-    }
-
-    /* ——— Buttons ——— */
-    .btn {
+    .btn-wa {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      max-width: 22rem;
       padding: 0.85rem 2rem;
       font-family: var(--font-body);
       font-size: 0.9375rem;
       font-weight: 400;
-      color: var(--bg-dark);
-      background: var(--accent);
+      color: var(--btn-text) !important;
+      background: var(--btn-beige);
       border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none !important;
     }
 
-    .btn:hover {
-      background: var(--accent-hover);
-      color: var(--bg-dark);
+    .btn-wa:hover {
+      background: var(--btn-beige-hover);
+      color: var(--btn-text) !important;
+    }
+
+    .list-kw {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .step-lead {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .about__lead {
+      font-weight: 500;
+      color: var(--text);
     }
 
     /* ——— Sections ——— */
     .section {
+      border-top: 1px solid var(--rule);
       padding: var(--section-pad) 0;
     }
 
-    .section--dark { background: var(--bg-dark); }
-    .section--alt { background: var(--bg-alt); }
-
     .section h2 {
       font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(1.65rem, 4.5vw, 2.1rem);
+      font-weight: 500;
+      font-size: clamp(1.65rem, 4.5vw, 2rem);
       line-height: 1.25;
-      letter-spacing: 0.02em;
-      margin: 0 0 2rem;
-      color: var(--text);
+      letter-spacing: 0.04em;
+      margin: 0 0 1.75rem;
+      text-align: center;
     }
 
-    /* ——— Lists ——— */
-    .list-editorial {
+    .list-plain {
       margin: 0;
       padding: 0;
       list-style: none;
+      text-align: center;
     }
 
-    .list-editorial li {
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--rule-list);
-      font-size: 0.9375rem;
-      line-height: 1.65;
+    @media (min-width: 600px) {
+      .section--audience .list-plain,
+      .section--receive .list-plain { text-align: left; }
+      .section--audience h2,
+      .section--receive h2 { text-align: left; }
+    }
+
+    .list-plain li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 1.15rem;
+      font-weight: 300;
+      font-size: 0.96875rem;
       color: var(--muted);
+      line-height: 1.7;
+      text-align: left;
+      max-width: 100%;
     }
 
-    .list-editorial li:first-child {
-      border-top: 1px solid var(--rule-list);
+    .list-plain li:last-child {
+      margin-bottom: 0;
     }
 
-    .list-editorial .kw {
-      font-weight: 400;
+    .content > .list-plain {
+      margin-inline: auto;
+    }
+
+    @media (min-width: 600px) {
+      .section--audience .content > .list-plain,
+      .section--receive .content > .list-plain {
+        margin-inline: 0;
+      }
+    }
+
+    .list-plain li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+
+    @media (max-width: 599px) {
+      .section--audience .list-plain li,
+      .section--receive .list-plain li {
+        text-align: center;
+        padding-left: 0;
+      }
+      .section--audience .list-plain li::before,
+      .section--receive .list-plain li::before {
+        display: none;
+      }
+    }
+
+    .kw {
+      font-weight: 500;
       color: var(--text);
     }
 
     .callout {
       margin-top: 2rem;
       padding: 0 0 0 1rem;
-      border-left: 1px solid var(--accent);
+      border-left: 2px solid var(--accent);
+      background: none;
+      border-radius: 0;
       font-size: 0.9375rem;
       font-style: italic;
       font-weight: 300;
       color: var(--muted);
       line-height: 1.65;
+      text-align: center;
     }
 
-    /* ——— Steps ——— */
+    @media (min-width: 600px) {
+      .callout { text-align: left; }
+    }
+
     .steps {
       display: flex;
       flex-direction: column;
@@ -260,14 +356,15 @@
 
     .step {
       display: flex;
-      gap: 1.15rem;
+      gap: 1rem;
       align-items: flex-start;
+      text-align: left;
     }
 
     .step__num {
       flex-shrink: 0;
-      width: 2.25rem;
-      height: 2.25rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -276,96 +373,106 @@
       font-size: 0.8125rem;
       font-weight: 400;
       background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
+      border: 1px solid var(--lavender);
+      color: var(--lavender);
     }
 
     .step p {
       margin: 0;
-      font-size: 0.9375rem;
+      font-weight: 300;
+      font-size: 0.96875rem;
       color: var(--muted);
       line-height: 1.65;
-      padding-top: 0.25rem;
+      padding-top: 0.15rem;
     }
 
-    .step .step-lead {
-      font-weight: 400;
-      color: var(--text);
+    .section--steps h2 {
+      margin-bottom: 1.5rem;
     }
 
-    /* ——— About ——— */
+    .section--about h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .section--about h2 {
+        text-align: left;
+      }
+    }
+
     .about {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
-    }
-
-    .about__figure {
-      margin: 0;
-      flex-shrink: 0;
-    }
-
-    .about__img {
-      width: 85%;
-      max-width: 300px;
-      aspect-ratio: 1 / 1;
-      max-height: 300px;
-      display: block;
-      margin: 0 auto;
-      object-fit: cover;
-      object-position: center 15%;
-      border-radius: 12px;
-    }
-
-    .about__text {
-      margin: 0;
-      font-size: 0.9375rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
       text-align: center;
-    }
-
-    .about__text .about__lead {
-      font-weight: 400;
-      color: var(--text);
+      gap: 0;
     }
 
     @media (min-width: 768px) {
       .about {
         flex-direction: row;
         align-items: flex-start;
-        gap: 2.5rem;
-      }
-
-      .about__figure {
-        flex: 0 0 240px;
-      }
-
-      .about__img {
-        width: 240px;
-        max-width: 240px;
-      }
-
-      .about__text {
         text-align: left;
+        gap: 2rem;
       }
     }
 
-    /* ——— Price ——— */
+    .about__figure {
+      width: 100%;
+      text-align: center;
+      margin: 0 auto 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .about__figure--missing {
+      display: none;
+    }
+
+    .about__img {
+      width: 88%;
+      aspect-ratio: 3 / 4;
+      max-height: 380px;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .about__figure {
+        width: 220px;
+        text-align: left;
+        margin: 0;
+      }
+      .about__img {
+        width: 220px;
+        max-height: 300px;
+        aspect-ratio: auto;
+      }
+    }
+
+    .about__text {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 100%;
+    }
+
     .price-block {
       text-align: center;
     }
 
     .price {
       font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2rem, 6vw, 2.8rem);
+      font-weight: 500;
+      font-size: 1.8rem;
       margin: 0 0 0.5rem;
       line-height: 1.2;
       letter-spacing: 0.02em;
-      color: var(--text);
     }
 
     .price-note {
@@ -380,7 +487,8 @@
       margin-bottom: 1.75rem;
     }
 
-    .price-block .btn {
+    .price-block .btn-wa {
+      max-width: 22rem;
       margin-inline: auto;
     }
 
@@ -391,30 +499,43 @@
       color: var(--muted);
     }
 
-    /* ——— CTA ——— */
     .section--cta .content {
       text-align: center;
     }
 
     .cta-final__text {
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.35rem;
       max-width: 24rem;
       font-size: 0.9375rem;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
-    .section--cta .btn {
+    .section--cta .btn-wa {
+      max-width: 22rem;
       margin-inline: auto;
     }
 
-    /* ——— Footer ——— */
+    /* Steps & pricing: center heading on mobile, left on larger if desired - user said text center mobile */
+    .section--steps .content {
+      text-align: center;
+    }
+
+    .section--steps .steps {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    @media (min-width: 600px) {
+      .section--steps .content { text-align: left; }
+      .section--steps h2 { text-align: left; }
+    }
+
     footer {
       border-top: 1px solid var(--rule);
-      padding: clamp(3rem, 10vw, 5rem) 1rem 2.5rem;
+      padding: clamp(4rem, 12vw, 6rem) 1rem 3rem;
       text-align: center;
-      background: var(--bg-dark);
     }
 
     footer a {
@@ -434,7 +555,7 @@
       font-size: 0.6875rem;
       font-weight: 300;
       color: var(--muted);
-      opacity: 0.6;
+      opacity: 0.75;
       letter-spacing: 0.06em;
     }
   </style>
@@ -443,36 +564,37 @@
 
   <section class="hero">
     <div class="hero__media">
-      <img class="hero__img" src="hero.jpg" alt="" width="900" height="1100" decoding="async" fetchpriority="high">
+      <img class="hero__img" src="hero.jpg" alt="" width="900" height="1100" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.parentElement.classList.add('is-fallback')">
     </div>
     <div class="hero__inner">
       <div class="hero__box">
         <h1>Oksana Sultanowa</h1>
         <p class="subtitle">Онлайн-консультация по волосам</p>
         <p class="lead">Разберём, что делать с волосами — без ошибок и лишних экспериментов</p>
+        <p class="hero-sub-lead">Разбор состояния волос, рекомендации по цвету, стрижке и уходу</p>
         <p class="meta">30–40 минут · онлайн</p>
-        <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+        <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="h-audience">
+  <section class="section section--audience" aria-labelledby="h-audience">
     <div class="content">
       <h2 id="h-audience">Кому подойдёт консультация</h2>
-      <ul class="list-editorial">
-        <li><span class="kw">Если</span> вы хотите изменить цвет, но не уверены</li>
-        <li><span class="kw">Если</span> не понимаете, что вам пойдёт</li>
-        <li><span class="kw">Если</span> был неудачный результат</li>
-        <li><span class="kw">Если</span> волосы в разном состоянии и сложно разобраться</li>
-        <li><span class="kw">Если</span> хотите мнение специалиста до визита в салон</li>
+      <ul class="list-plain">
+        <li><span class="list-kw">Если</span> вы хотите изменить цвет, но не уверены</li>
+        <li><span class="list-kw">Если</span> не понимаете, что вам пойдёт</li>
+        <li><span class="list-kw">Если</span> был неудачный результат</li>
+        <li><span class="list-kw">Если</span> волосы в разном состоянии и сложно разобраться</li>
+        <li><span class="list-kw">Если</span> хотите мнение специалиста до визита в салон</li>
       </ul>
     </div>
   </section>
 
-  <section class="section section--dark" aria-labelledby="h-receive">
+  <section class="section section--receive" aria-labelledby="h-receive">
     <div class="content">
       <h2 id="h-receive">Что вы получите</h2>
-      <ul class="list-editorial">
+      <ul class="list-plain">
         <li><span class="kw">Понимание,</span> что можно делать с вашими волосами</li>
         <li><span class="kw">Рекомендации по цвету</span> и стрижке</li>
         <li><span class="kw">Подбор ухода</span> под текущее состояние</li>
@@ -483,7 +605,7 @@
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="h-steps">
+  <section class="section section--steps" aria-labelledby="h-steps">
     <div class="content">
       <h2 id="h-steps">Как проходит консультация</h2>
       <div class="steps">
@@ -507,12 +629,12 @@
     </div>
   </section>
 
-  <section class="section section--dark" aria-labelledby="h-about">
+  <section class="section section--about" aria-labelledby="h-about">
     <div class="content">
       <h2 id="h-about">Обо мне</h2>
       <div class="about">
         <figure class="about__figure">
-          <img class="about__img" src="hero.jpg" alt="" width="600" height="800" loading="lazy" decoding="async">
+          <img class="about__img" src="hero.jpg" alt="" width="600" height="800" loading="lazy" decoding="async" onerror="this.onerror=null;this.closest('.about__figure').classList.add('about__figure--missing')">
         </figure>
         <p class="about__text"><span class="about__lead">Оксана Султанова</span> — парикмахер-колорист<br>
 <span class="about__lead">25 лет в профессии</span><br>
@@ -529,21 +651,21 @@
     </div>
   </section>
 
-  <section class="section section--alt" aria-labelledby="h-price">
+  <section class="section section--price" aria-labelledby="h-price">
     <div class="content price-block">
       <h2 id="h-price">Стоимость</h2>
       <p class="price">150 zł</p>
       <p class="price-note">30–40 минут · онлайн</p>
       <p class="price-note">Оплата возможна из любой страны</p>
-      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
       <p class="price-hint">Напишите — и мы договоримся о времени</p>
     </div>
   </section>
 
-  <section class="section section--dark section--cta" aria-label="Запись на консультацию">
+  <section class="section section--cta" aria-label="Запись на консультацию">
     <div class="content">
       <p class="cta-final__text">Можно начать с консультации. Сначала разобраться — потом менять</p>
-      <a class="btn wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
+      <a class="btn-wa wa-link" href="#" target="_blank" rel="noopener noreferrer">Записаться на консультацию</a>
     </div>
   </section>
 
